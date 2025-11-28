@@ -49,6 +49,9 @@
     <Compile Include="Controls\LoginPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\LoginPageControl.Designer.cs">
+      <DependentUpon>LoginPageControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MainPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -58,6 +61,12 @@
     <Compile Include="Controls\ShopPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Controls\SignUpPageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SignUpPageControl.Designer.cs">
+      <DependentUpon>SignUpPageControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,8 +75,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\LoginPageControl.resx">
+      <DependentUpon>LoginPageControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\MainPageControl.resx">
       <DependentUpon>MainPageControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SignUpPageControl.resx">
+      <DependentUpon>SignUpPageControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

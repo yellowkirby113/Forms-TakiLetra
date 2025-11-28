@@ -23,7 +23,7 @@ namespace Forms_TakiLetra.Controls
             var lblInfo = new Label
             {
                 AutoSize = true,
-                Text = "Bem-vindo à loja!",
+                Text = "Bem-vindo ï¿½ loja!",
                 Location = new Point(24, 60)
             };
 

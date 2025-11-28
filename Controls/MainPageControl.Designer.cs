@@ -50,11 +50,11 @@ namespace Forms_TakiLetra.Controls
             this.btnGoToLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoToLogin.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoToLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnGoToLogin.Location = new System.Drawing.Point(335, 257);
+            this.btnGoToLogin.Location = new System.Drawing.Point(344, 258);
             this.btnGoToLogin.Name = "btnGoToLogin";
-            this.btnGoToLogin.Size = new System.Drawing.Size(131, 45);
+            this.btnGoToLogin.Size = new System.Drawing.Size(98, 45);
             this.btnGoToLogin.TabIndex = 1;
-            this.btnGoToLogin.Text = "Ir para Login";
+            this.btnGoToLogin.Text = "Login";
             this.btnGoToLogin.UseVisualStyleBackColor = false;
             this.btnGoToLogin.Click += new System.EventHandler(this.btnGoToLogin_Click);
             // 
@@ -84,11 +84,11 @@ namespace Forms_TakiLetra.Controls
             this.btnacc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnacc.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnacc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnacc.Location = new System.Drawing.Point(727, 29);
+            this.btnacc.Location = new System.Drawing.Point(728, 29);
             this.btnacc.Name = "btnacc";
-            this.btnacc.Size = new System.Drawing.Size(146, 66);
+            this.btnacc.Size = new System.Drawing.Size(95, 66);
             this.btnacc.TabIndex = 4;
-            this.btnacc.Text = "Account";
+            this.btnacc.Text = "Acc";
             this.btnacc.UseVisualStyleBackColor = false;
             this.btnacc.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -101,7 +101,7 @@ namespace Forms_TakiLetra.Controls
             this.btnbooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnbooks.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnbooks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnbooks.Location = new System.Drawing.Point(67, 29);
+            this.btnbooks.Location = new System.Drawing.Point(68, 29);
             this.btnbooks.Name = "btnbooks";
             this.btnbooks.Size = new System.Drawing.Size(198, 66);
             this.btnbooks.TabIndex = 6;
@@ -117,7 +117,7 @@ namespace Forms_TakiLetra.Controls
             this.btnEBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEBooks.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEBooks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnEBooks.Location = new System.Drawing.Point(464, 29);
+            this.btnEBooks.Location = new System.Drawing.Point(465, 29);
             this.btnEBooks.Name = "btnEBooks";
             this.btnEBooks.Size = new System.Drawing.Size(200, 66);
             this.btnEBooks.TabIndex = 7;
@@ -134,7 +134,7 @@ namespace Forms_TakiLetra.Controls
             this.btnAbooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAbooks.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAbooks.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnAbooks.Location = new System.Drawing.Point(264, 29);
+            this.btnAbooks.Location = new System.Drawing.Point(265, 29);
             this.btnAbooks.Name = "btnAbooks";
             this.btnAbooks.Size = new System.Drawing.Size(207, 66);
             this.btnAbooks.TabIndex = 8;
@@ -152,7 +152,7 @@ namespace Forms_TakiLetra.Controls
             this.btnsetting.Font = new System.Drawing.Font("Bombardier", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnsetting.Image = global::Forms_TakiLetra.Properties.Resources.settings_42dp_E3E3E3_FILL0_wght500_GRAD200_opsz48;
-            this.btnsetting.Location = new System.Drawing.Point(662, 29);
+            this.btnsetting.Location = new System.Drawing.Point(663, 29);
             this.btnsetting.Name = "btnsetting";
             this.btnsetting.Size = new System.Drawing.Size(70, 66);
             this.btnsetting.TabIndex = 5;
@@ -162,7 +162,7 @@ namespace Forms_TakiLetra.Controls
             // MainPageControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(122)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(112)))));
             this.Controls.Add(this.btnAbooks);
             this.Controls.Add(this.btnEBooks);
             this.Controls.Add(this.btnbooks);
