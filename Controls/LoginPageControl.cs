@@ -26,6 +26,11 @@ namespace Forms_TakiLetra.Controls
         /// </summary>
         public string LoggedRole { get; private set; } = "User";
 
+        /// <summary>
+        /// Último nome de usuário que fez login com sucesso.
+        /// </summary>
+        public string LoggedUsername { get; private set; } = string.Empty;
+
         public LoginPageControl()
         {
             InitializeComponent();
@@ -46,6 +51,8 @@ namespace Forms_TakiLetra.Controls
         private void TryLogin()
         {
             LoggedRole = "User";
+            LoggedUsername = string.Empty;
+
             var user = txtUsername?.Text ?? string.Empty;
             var pass = txtPassword?.Text ?? string.Empty;
 
@@ -77,12 +84,19 @@ namespace Forms_TakiLetra.Controls
                 {
                     if (match.Length >= 3 && !string.IsNullOrWhiteSpace(match[2]))
                         LoggedRole = match[2];
-                    LoginSucceeded?.Invoke(this, EventArgs.Empty);
+
+                    LoggedUsername = user;
+
                     txtUsername.Clear();
                     txtPassword.Clear();
+
+                    // Dispara sucesso para o container decidir a navegação (Form1 levará para Main)
+                    LoginSucceeded?.Invoke(this, EventArgs.Empty);
                 }
                 else
+                {
                     MessageBox.Show("Credenciais inválidas.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {

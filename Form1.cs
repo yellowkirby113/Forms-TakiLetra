@@ -16,13 +16,19 @@ namespace Forms_TakiLetra
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private enum ScreenId { Main, Login, SignUp, Shop }
+        // Adiciona Settings para permitir navegação à tela de configurações
+        private enum ScreenId { Main, Login, SignUp, Shop, Settings }
 
         private readonly Dictionary<ScreenId, UserControl> _screens = new Dictionary<ScreenId, UserControl>();
         private ScreenId? _current;
 
         // Declaração do painel de conteúdo usado para trocar telas
         private Panel contentPanel;
+
+        // Sessão atual
+        private string _loggedUsername;
+        private string _loggedRole;
+        private bool IsLoggedIn => !string.IsNullOrEmpty(_loggedUsername);
 
         public Form1()
         {
@@ -79,6 +85,12 @@ namespace Forms_TakiLetra
             _current = screen;
         }
 
+        private void ApplySessionToMain()
+        {
+            var main = GetOrCreateScreen(ScreenId.Main) as Controls.MainPageControl;
+            main?.ApplySession(_loggedUsername);
+        }
+
         private UserControl GetOrCreateScreen(ScreenId screen)
         {
             if (_screens.TryGetValue(screen, out var cached))
@@ -90,14 +102,31 @@ namespace Forms_TakiLetra
                 case ScreenId.Main:
                 {
                     var main = new Controls.MainPageControl();
-                    main.LoginRequested += (s, e) => Navigate(ScreenId.Login);
+                    // Se não logado, clicar em Acc/Settings chama login; se logado, Settings navega para settings
+                    main.LoginRequested += (s, e) =>
+                    {
+                        if (!IsLoggedIn) Navigate(ScreenId.Login);
+                    };
+                    main.SettingsRequested += (s, e) =>
+                    {
+                        if (IsLoggedIn) Navigate(ScreenId.Settings);
+                        else Navigate(ScreenId.Login);
+                    };
+                    main.ApplySession(_loggedUsername);
                     created = main;
                     break;
                 }
                 case ScreenId.Login:
                 {
                     var login = new Controls.LoginPageControl();
-                    login.LoginSucceeded += (s, e) => Navigate(ScreenId.Shop);
+                    login.LoginSucceeded += (s, e) =>
+                    {
+                        _loggedUsername = login.LoggedUsername;
+                        _loggedRole = login.LoggedRole;
+                        ApplySessionToMain();
+                        // Após logar, volta para a Main em vez de Shop
+                        Navigate(ScreenId.Main);
+                    };
                     login.CancelRequested += (s, e) => Navigate(ScreenId.Main);
                     login.MainPageRequested += (s, e) => Navigate(ScreenId.Main);
                     login.SignUpRequested += (s, e) => Navigate(ScreenId.SignUp);
@@ -112,11 +141,24 @@ namespace Forms_TakiLetra
                     created = sign;
                     break;
                 }
+                case ScreenId.Settings:
+                {
+                    var settings = new Controls.SettingsPageControl();
+                    settings.CloseRequested += (s, e) => Navigate(ScreenId.Main);
+                    created = settings;
+                    break;
+                }
                 case ScreenId.Shop:
                 default:
                 {
                     var shop = new Controls.ShopPageControl();
-                    shop.LogoutRequested += (s, e) => Navigate(ScreenId.Main);
+                    shop.LogoutRequested += (s, e) =>
+                    {
+                        _loggedUsername = null;
+                        _loggedRole = null;
+                        ApplySessionToMain();
+                        Navigate(ScreenId.Main);
+                    };
                     created = shop;
                     break;
                 }

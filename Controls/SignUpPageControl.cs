@@ -46,6 +46,13 @@ namespace Forms_TakiLetra.Controls
                 return;
             }
 
+            // sanitiza para evitar que ':' quebre o formato do arquivo
+            user = user.Trim().Replace(":", "_");
+            pass = pass.Trim().Replace(":", "_");
+
+            // Sempre criar como "User" pelo UI; admin somente por edição manual do Users.txt
+            var role = "User";
+
             var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Users.txt");
             try
             {
@@ -64,6 +71,9 @@ namespace Forms_TakiLetra.Controls
                     MessageBox.Show("Usuário já existe.", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+                // escreve no arquivo no formato: username:password:role
+                File.AppendAllLines(path, new[] { $"{user}:{pass}:{role}" });
 
                 MessageBox.Show("Conta criada com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SignUpSucceeded?.Invoke(this, EventArgs.Empty);

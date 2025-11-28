@@ -26,7 +26,9 @@ namespace Forms_TakiLetra.Controls
             this.btnbooks = new System.Windows.Forms.Button();
             this.btnEBooks = new System.Windows.Forms.Button();
             this.btnAbooks = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsetting = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -34,7 +36,7 @@ namespace Forms_TakiLetra.Controls
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.lblTitle.Location = new System.Drawing.Point(339, 138);
+            this.lblTitle.Location = new System.Drawing.Point(339, 126);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(103, 26);
             this.lblTitle.TabIndex = 0;
@@ -50,7 +52,7 @@ namespace Forms_TakiLetra.Controls
             this.btnGoToLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoToLogin.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoToLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnGoToLogin.Location = new System.Drawing.Point(344, 258);
+            this.btnGoToLogin.Location = new System.Drawing.Point(344, 312);
             this.btnGoToLogin.Name = "btnGoToLogin";
             this.btnGoToLogin.Size = new System.Drawing.Size(98, 45);
             this.btnGoToLogin.TabIndex = 1;
@@ -142,6 +144,15 @@ namespace Forms_TakiLetra.Controls
             this.btnAbooks.UseVisualStyleBackColor = false;
             this.btnAbooks.Click += new System.EventHandler(this.button5_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Forms_TakiLetra.Properties.Resources.title;
+            this.pictureBox1.Location = new System.Drawing.Point(162, 167);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(469, 121);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnsetting
             // 
             this.btnsetting.AutoSize = true;
@@ -163,6 +174,7 @@ namespace Forms_TakiLetra.Controls
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(112)))));
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAbooks);
             this.Controls.Add(this.btnEBooks);
             this.Controls.Add(this.btnbooks);
@@ -174,6 +186,7 @@ namespace Forms_TakiLetra.Controls
             this.Font = new System.Drawing.Font("Minecrafter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainPageControl";
             this.Size = new System.Drawing.Size(800, 450);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +198,6 @@ namespace Forms_TakiLetra.Controls
         private Button btnbooks;
         private Button btnEBooks;
         private Button btnAbooks;
+        private PictureBox pictureBox1;
     }
 }

@@ -58,6 +58,9 @@
     <Compile Include="Controls\MainPageControl.Designer.cs">
       <DependentUpon>MainPageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SettingsPageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\ShopPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +118,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\settings_42dp_E3E3E3_FILL0_wght500_GRAD200_opsz48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\title.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

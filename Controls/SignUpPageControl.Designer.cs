@@ -31,6 +31,7 @@ namespace Forms_TakiLetra.Controls
             this.label1 = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnBackToLogin = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -149,10 +150,28 @@ namespace Forms_TakiLetra.Controls
             this.label3.Text = "Sign up";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // btnBackToLogin
+            // 
+            this.btnBackToLogin.AutoSize = true;
+            this.btnBackToLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(112)))));
+            this.btnBackToLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBackToLogin.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.btnBackToLogin.FlatAppearance.BorderSize = 0;
+            this.btnBackToLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackToLogin.Font = new System.Drawing.Font("Calibri", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.btnBackToLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(179)))), ((int)(((byte)(251)))));
+            this.btnBackToLogin.Location = new System.Drawing.Point(83, 247);
+            this.btnBackToLogin.Name = "btnBackToLogin";
+            this.btnBackToLogin.Size = new System.Drawing.Size(69, 25);
+            this.btnBackToLogin.TabIndex = 26;
+            this.btnBackToLogin.Text = "Login";
+            this.btnBackToLogin.UseVisualStyleBackColor = false;
+            this.btnBackToLogin.Click += new System.EventHandler(this.btnBackToLogin_Click_1);
+            // 
             // button1
             // 
             this.button1.AutoSize = true;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(112)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(122)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
@@ -169,6 +188,7 @@ namespace Forms_TakiLetra.Controls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(112)))));
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBackToLogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblPassword);
@@ -190,6 +210,7 @@ namespace Forms_TakiLetra.Controls
         private Label label1;
         private Label lblPassword;
         private Label label3;
+        private Button btnBackToLogin;
         private Button button1;
     }
 }
