@@ -1,25 +1,67 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace Forms_TakiLetra
 {
     public partial class Form1 : Form
     {
+        private const int WM_NCLBUTTONDOWN = 0xA1;
+        private const int HTCAPTION = 0x2;
+
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         private enum ScreenId { Main, Login, Shop }
 
         private readonly Dictionary<ScreenId, UserControl> _screens = new Dictionary<ScreenId, UserControl>();
         private ScreenId? _current;
 
+        // Declaração do painel de conteúdo usado para trocar telas
+        private Panel contentPanel;
+
         public Form1()
         {
             InitializeComponent();
-            this.Load += Form1_Load;
+
+            // Remova a borda padrão (pode também ser definido no Designer)
+            this.FormBorderStyle = FormBorderStyle.None;
+
+            // Inicialize o painel de conteúdo se não estiver criado via Designer
+            contentPanel = new Panel
+            {
+                Dock = DockStyle.Fill
+            };
+            this.Controls.Add(contentPanel);
+
+            // Eventos: arrastar pela barra customizada e botões
+            pnlTitleBar.MouseDown += TitleBar_MouseDown;
+            lblTitle.MouseDown += TitleBar_MouseDown; // arrastar também clicando no título
+            flpTitleButtons.MouseDown += TitleBar_MouseDown;
+
+            btnClose.Click += (s, e) => this.Close();
+            btnMinimize.Click += (s, e) => this.WindowState = FormWindowState.Minimized;
+
+            // Garantir que a aplicação comece na MainPage
+            Navigate(ScreenId.Main);
+        }
+
+        private void TitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Navigate(ScreenId.Main);
+            // Mantido vazio porque a navegação já ocorre no construtor
         }
 
         private void Navigate(ScreenId screen)
