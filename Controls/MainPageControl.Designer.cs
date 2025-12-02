@@ -26,7 +26,9 @@ namespace Forms_TakiLetra.Controls
             this.btnbooks = new System.Windows.Forms.Button();
             this.btnEBooks = new System.Windows.Forms.Button();
             this.btnAbooks = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsetting = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -50,7 +52,7 @@ namespace Forms_TakiLetra.Controls
             this.btnGoToLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoToLogin.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGoToLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.btnGoToLogin.Location = new System.Drawing.Point(344, 258);
+            this.btnGoToLogin.Location = new System.Drawing.Point(344, 309);
             this.btnGoToLogin.Name = "btnGoToLogin";
             this.btnGoToLogin.Size = new System.Drawing.Size(98, 45);
             this.btnGoToLogin.TabIndex = 1;
@@ -142,6 +144,18 @@ namespace Forms_TakiLetra.Controls
             this.btnAbooks.UseVisualStyleBackColor = false;
             this.btnAbooks.Click += new System.EventHandler(this.button5_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Forms_TakiLetra.Properties.Resources.takilogo;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(222, 178);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(336, 95);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnsetting
             // 
             this.btnsetting.AutoSize = true;
@@ -149,7 +163,7 @@ namespace Forms_TakiLetra.Controls
             this.btnsetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnsetting.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnsetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsetting.Font = new System.Drawing.Font("Bombardier", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnsetting.Image = global::Forms_TakiLetra.Properties.Resources.settings_42dp_E3E3E3_FILL0_wght500_GRAD200_opsz48;
             this.btnsetting.Location = new System.Drawing.Point(663, 29);
@@ -163,6 +177,7 @@ namespace Forms_TakiLetra.Controls
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(2)))), ((int)(((byte)(112)))));
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAbooks);
             this.Controls.Add(this.btnEBooks);
             this.Controls.Add(this.btnbooks);
@@ -171,9 +186,10 @@ namespace Forms_TakiLetra.Controls
             this.Controls.Add(this.btnlogo);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnGoToLogin);
-            this.Font = new System.Drawing.Font("Minecrafter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainPageControl";
             this.Size = new System.Drawing.Size(800, 450);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +201,6 @@ namespace Forms_TakiLetra.Controls
         private Button btnbooks;
         private Button btnEBooks;
         private Button btnAbooks;
+        private PictureBox pictureBox1;
     }
 }

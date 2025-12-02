@@ -30,6 +30,7 @@ namespace Forms_TakiLetra.Controls
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(16, 16);
             this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(74, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Livros";
             // 
@@ -43,6 +44,7 @@ namespace Forms_TakiLetra.Controls
             this.Size = new System.Drawing.Size(800, 450);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
