@@ -65,6 +65,9 @@ namespace Forms_TakiLetra.Controls
                     return;
                 }
 
+                // Adiciona o novo usuário ao arquivo
+                File.AppendAllText(path, $"{user}:{pass}\n");
+
                 MessageBox.Show("Conta criada com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SignUpSucceeded?.Invoke(this, EventArgs.Empty);
             }

@@ -12,7 +12,6 @@ namespace Forms_TakiLetra.Controls
         {
             InitializeComponent();
             btnGoToLogin.Click += (s, e) => LoginRequested?.Invoke(this, EventArgs.Empty);
-            btnacc.Click += (s, e) => LoginRequested?.Invoke(this, EventArgs.Empty);
             btnsetting.Click += (s, e) => LoginRequested?.Invoke(this, EventArgs.Empty);
         }
 
