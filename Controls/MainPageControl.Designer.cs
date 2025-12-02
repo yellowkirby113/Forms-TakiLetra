@@ -107,6 +107,7 @@ namespace Forms_TakiLetra.Controls
             this.btnbooks.TabIndex = 6;
             this.btnbooks.Text = "Books";
             this.btnbooks.UseVisualStyleBackColor = false;
+            this.btnbooks.Click += new System.EventHandler(this.btnbooks_Click);
             // 
             // btnEBooks
             // 
@@ -149,7 +150,7 @@ namespace Forms_TakiLetra.Controls
             this.btnsetting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnsetting.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.btnsetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnsetting.Font = new System.Drawing.Font("Bombardier", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsetting.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnsetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.btnsetting.Image = global::Forms_TakiLetra.Properties.Resources.settings_42dp_E3E3E3_FILL0_wght500_GRAD200_opsz48;
             this.btnsetting.Location = new System.Drawing.Point(663, 29);
@@ -171,7 +172,7 @@ namespace Forms_TakiLetra.Controls
             this.Controls.Add(this.btnlogo);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnGoToLogin);
-            this.Font = new System.Drawing.Font("Minecrafter", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainPageControl";
             this.Size = new System.Drawing.Size(800, 450);
             this.ResumeLayout(false);
