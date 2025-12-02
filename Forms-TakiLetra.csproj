@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\books.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\books.Designer.cs">
+      <DependentUpon>books.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\LoginPageControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\books.resx">
+      <DependentUpon>books.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\LoginPageControl.resx">
       <DependentUpon>LoginPageControl.cs</DependentUpon>
     </EmbeddedResource>
