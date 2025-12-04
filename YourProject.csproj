@@ -1,6 +1,37 @@
 <ItemGroup>
-  <Compile Include="Controls\BooksControl.cs" />
-  <Compile Include="Controls\BooksControl.Designer.cs">
-    <DependentUpon>BooksControl.cs</DependentUpon>
+  <Compile Include="Controls\books.cs" />
+  <Compile Include="Controls\books.Designer.cs">
+    <DependentUpon>books.cs</DependentUpon>
   </Compile>
+  <EmbeddedResource Include="Controls\books.resx">
+    <DependentUpon>books.cs</DependentUpon>
+  </EmbeddedResource>
+
+  <Compile Include="Controls\BooksControl.cs" />
+
+  <Compile Include="Controls\LoginPageControl.cs" />
+  <Compile Include="Controls\LoginPageControl.Designer.cs">
+    <DependentUpon>LoginPageControl.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Include="Controls\LoginPageControl.resx">
+    <DependentUpon>LoginPageControl.cs</DependentUpon>
+  </EmbeddedResource>
+
+  <Compile Include="Controls\MainPageControl.cs" />
+  <Compile Include="Controls\MainPageControl.Designer.cs">
+    <DependentUpon>MainPageControl.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Include="Controls\MainPageControl.resx">
+    <DependentUpon>MainPageControl.cs</DependentUpon>
+  </EmbeddedResource>
+
+  <Compile Include="Controls\ShopPageControl.cs" />
+
+  <Compile Include="Controls\SignUpPageControl.cs" />
+  <Compile Include="Controls\SignUpPageControl.Designer.cs">
+    <DependentUpon>SignUpPageControl.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Include="Controls\SignUpPageControl.resx">
+    <DependentUpon>SignUpPageControl.cs</DependentUpon>
+  </EmbeddedResource>
 </ItemGroup>
