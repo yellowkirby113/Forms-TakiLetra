@@ -16,7 +16,7 @@ namespace Forms_TakiLetra
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
-        private enum ScreenId { Main, Login, SignUp, Shop }
+        private enum ScreenId { Main, Login, SignUp, Shop, Books }
 
         private readonly Dictionary<ScreenId, UserControl> _screens = new Dictionary<ScreenId, UserControl>();
         private ScreenId? _current;
@@ -91,6 +91,7 @@ namespace Forms_TakiLetra
                 {
                     var main = new Controls.MainPageControl();
                     main.LoginRequested += (s, e) => Navigate(ScreenId.Login);
+                    main.BooksRequested += (s, e) => Navigate(ScreenId.Books);
                     created = main;
                     break;
                 }
@@ -110,6 +111,13 @@ namespace Forms_TakiLetra
                     sign.SignUpSucceeded += (s, e) => Navigate(ScreenId.Login);
                     sign.CancelRequested += (s, e) => Navigate(ScreenId.Login);
                     created = sign;
+                    break;
+                }
+                case ScreenId.Books:
+                {
+                    var books = new Controls.books();
+                    books.MainPageRequested += (s, e) => Navigate(ScreenId.Main);
+                    created = books;
                     break;
                 }
                 case ScreenId.Shop:

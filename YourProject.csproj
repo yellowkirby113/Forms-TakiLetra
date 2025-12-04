@@ -1,0 +1,19 @@
+<ItemGroup>
+  <Compile Include="Controls\MainPageControl.cs" />
+  <Compile Include="Controls\MainPageControl.Designer.cs">
+    <DependentUpon>MainPageControl.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Include="Controls\MainPageControl.resx">
+    <DependentUpon>MainPageControl.cs</DependentUpon>
+  </EmbeddedResource>
+
+  <Compile Include="Controls\books.cs" />
+  <Compile Include="Controls\books.Designer.cs">
+    <DependentUpon>books.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Include="Controls\books.resx">
+    <DependentUpon>books.cs</DependentUpon>
+  </EmbeddedResource>
+
+  <!-- Repeat for LoginPageControl, SignUpPageControl, BooksControl (or BooksControl.cs) etc. -->
+</ItemGroup>

@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,12 +8,31 @@ namespace Forms_TakiLetra.Controls
     public partial class MainPageControl : UserControl
     {
         public event EventHandler LoginRequested;
+        public event EventHandler BooksRequested;
 
         public MainPageControl()
         {
             InitializeComponent();
-            btnGoToLogin.Click += (s, e) => LoginRequested?.Invoke(this, EventArgs.Empty);
-            btnsetting.Click += (s, e) => LoginRequested?.Invoke(this, EventArgs.Empty);
+
+            // Prevent runtime-only code from executing inside the WinForms Designer.
+            // LicenseManager.UsageMode is reliable here (DesignMode is unreliable inside ctor).
+            if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+                return;
+
+            try
+            {
+                btnGoToLogin.Click += (s, e) => LoginRequested?.Invoke(this, EventArgs.Empty);
+                btnsetting.Click += (s, e) => LoginRequested?.Invoke(this, EventArgs.Empty);
+
+                // raise BooksRequested when the Books button is clicked
+                btnbooks.Click += (s, e) => BooksRequested?.Invoke(this, EventArgs.Empty);
+            }
+            catch (Exception ex)
+            {
+                // Swallow exceptions so the designer can load. At runtime these should not occur;
+                // use Debug.WriteLine to help diagnostics without throwing in design-time.
+                System.Diagnostics.Debug.WriteLine($"MainPageControl ctor suppressed exception: {ex}");
+            }
         }
 
         private void btnGoToLogin_Click(object sender, EventArgs e)
