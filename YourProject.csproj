@@ -1,0 +1,6 @@
+<ItemGroup>
+  <Compile Include="Controls\BooksControl.cs" />
+  <Compile Include="Controls\BooksControl.Designer.cs">
+    <DependentUpon>BooksControl.cs</DependentUpon>
+  </Compile>
+</ItemGroup>
