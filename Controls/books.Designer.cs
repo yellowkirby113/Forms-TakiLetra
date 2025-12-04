@@ -33,6 +33,7 @@ namespace Forms_TakiLetra.Controls
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.lblTitle.Location = new System.Drawing.Point(339, 138);
             this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(74, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Livros";
             // 
@@ -62,6 +63,7 @@ namespace Forms_TakiLetra.Controls
             this.Size = new System.Drawing.Size(800, 450);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

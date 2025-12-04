@@ -178,7 +178,7 @@ namespace Forms_TakiLetra.Controls
             this.Controls.Add(this.btnCreateAccount);
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.txtNewUsername);
-            this.Font = new System.Drawing.Font("Minecrafter", 8.25F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "SignUpPageControl";
             this.Size = new System.Drawing.Size(800, 450);
             this.ResumeLayout(false);

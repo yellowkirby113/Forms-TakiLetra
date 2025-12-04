@@ -125,5 +125,8 @@
   <ItemGroup>
     <None Include="Resources\settings_42dp_E3E3E3_FILL0_wght500_GRAD200_opsz48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\takilogo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
