@@ -27,7 +27,7 @@ namespace Forms_TakiLetra.Controls
                 FlatStyle = FlatStyle.Flat,
                 Font = new Font("Calibri", 11.25F, FontStyle.Bold),
                 ForeColor = Color.FromArgb(255, 241, 241),
-                Location = new Point(90, 40),
+                Location = new Point(329, 190),
             };
 
             btnBackToMain.Click += BtnBackToMain_Click;

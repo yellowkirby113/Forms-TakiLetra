@@ -15,23 +15,5 @@
     <DependentUpon>books.cs</DependentUpon>
   </EmbeddedResource>
 
-  <Compile Include="Controls\BooksControl.cs" />
-
-  <Compile Include="Controls\LoginPageControl.cs" />
-  <Compile Include="Controls\LoginPageControl.Designer.cs">
-    <DependentUpon>LoginPageControl.cs</DependentUpon>
-  </Compile>
-  <EmbeddedResource Include="Controls\LoginPageControl.resx">
-    <DependentUpon>LoginPageControl.cs</DependentUpon>
-  </EmbeddedResource>
-
-  <Compile Include="Controls\ShopPageControl.cs" />
-
-  <Compile Include="Controls\SignUpPageControl.cs" />
-  <Compile Include="Controls\SignUpPageControl.Designer.cs">
-    <DependentUpon>SignUpPageControl.cs</DependentUpon>
-  </Compile>
-  <EmbeddedResource Include="Controls\SignUpPageControl.resx">
-    <DependentUpon>SignUpPageControl.cs</DependentUpon>
-  </EmbeddedResource>
+  <!-- Repeat for LoginPageControl, SignUpPageControl, BooksControl (or BooksControl.cs) etc. -->
 </ItemGroup>
