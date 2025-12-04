@@ -1,4 +1,12 @@
 <ItemGroup>
+  <Compile Include="Controls\MainPageControl.cs" />
+  <Compile Include="Controls\MainPageControl.Designer.cs">
+    <DependentUpon>MainPageControl.cs</DependentUpon>
+  </Compile>
+  <EmbeddedResource Include="Controls\MainPageControl.resx">
+    <DependentUpon>MainPageControl.cs</DependentUpon>
+  </EmbeddedResource>
+
   <Compile Include="Controls\books.cs" />
   <Compile Include="Controls\books.Designer.cs">
     <DependentUpon>books.cs</DependentUpon>
@@ -15,14 +23,6 @@
   </Compile>
   <EmbeddedResource Include="Controls\LoginPageControl.resx">
     <DependentUpon>LoginPageControl.cs</DependentUpon>
-  </EmbeddedResource>
-
-  <Compile Include="Controls\MainPageControl.cs" />
-  <Compile Include="Controls\MainPageControl.Designer.cs">
-    <DependentUpon>MainPageControl.cs</DependentUpon>
-  </Compile>
-  <EmbeddedResource Include="Controls\MainPageControl.resx">
-    <DependentUpon>MainPageControl.cs</DependentUpon>
   </EmbeddedResource>
 
   <Compile Include="Controls\ShopPageControl.cs" />
