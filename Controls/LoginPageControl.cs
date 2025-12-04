@@ -2,12 +2,14 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Forms_TakiLetra.Models;
 
 namespace Forms_TakiLetra.Controls
 {
     public partial class LoginPageControl : UserControl
     {
         public event EventHandler LoginSucceeded;
+        public event EventHandler AdminLoginSucceeded;
         public event EventHandler CancelRequested;
 
         /// <summary>
@@ -40,53 +42,45 @@ namespace Forms_TakiLetra.Controls
         private void TxtUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true; // Evita o som de "ding" no Windows
                 TryLogin();
+            }
         }
 
         private void TryLogin()
         {
-            LoggedRole = "User";
-            var user = txtUsername?.Text ?? string.Empty;
-            var pass = txtPassword?.Text ?? string.Empty;
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
 
-            if (string.IsNullOrWhiteSpace(user))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
-                txtUsername?.Focus();
-                txtUsername?.Clear();
-
+                MessageBox.Show("Por favor, preencha todos os campos.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Users.txt");
-            if (!File.Exists(path))
-            {
-                MessageBox.Show("Arquivo de usuários não encontrado: " + path, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            var userData = UserData.LoadUsers().FirstOrDefault(u => u.Username.Equals(username, StringComparison.OrdinalIgnoreCase) && u.Password == password);
 
-            try
+            if (userData != null)
             {
-                var lines = File.ReadAllLines(path);
-                var match = lines
-                    .Select(l => l.Trim())
-                    .Where(l => l.Length > 0 && l.Contains(":"))
-                    .Select(l => l.Split(new[] { ':' }, 3))
-                    .FirstOrDefault(parts => parts.Length >= 2 && parts[0] == user && parts[1] == pass);
+                LoggedRole = userData.Role;
+                MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                txtUsername.Clear();
+                txtPassword.Clear();
 
-                if (match != null)
+                if (userData.Role == "Admin") // Verifica a propriedade Role
                 {
-                    if (match.Length >= 3 && !string.IsNullOrWhiteSpace(match[2]))
-                        LoggedRole = match[2];
-                    LoginSucceeded?.Invoke(this, EventArgs.Empty);
-                    txtUsername.Clear();
-                    txtPassword.Clear();
+                    AdminLoginSucceeded?.Invoke(this, EventArgs.Empty);
                 }
                 else
-                    MessageBox.Show("Credenciais inválidas.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                {
+                    LoginSucceeded?.Invoke(this, EventArgs.Empty);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Erro ao ler arquivo de usuários: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Nome de usuário ou senha inválidos.", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -151,6 +145,11 @@ namespace Forms_TakiLetra.Controls
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            TryLogin();
         }
     }
 }

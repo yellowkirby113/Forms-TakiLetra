@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\AdminUserManagementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\AdminUserManagementControl.Designer.cs">
+      <DependentUpon>AdminUserManagementControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\books.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -73,12 +79,16 @@
     <Compile Include="Controls\SignUpPageControl.Designer.cs">
       <DependentUpon>SignUpPageControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UserEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\books.resx">

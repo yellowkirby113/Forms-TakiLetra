@@ -50,7 +50,10 @@ namespace Forms_TakiLetra.Controls
             try
             {
                 if (!File.Exists(path))
-                    File.WriteAllText(path, string.Empty);
+                {
+                    // Criar arquivo com usuário admin padrão
+                    File.WriteAllText(path, "admin:admin:Admin\n");
+                }
 
                 var lines = File.ReadAllLines(path)
                     .Select(l => l.Trim())
@@ -65,8 +68,8 @@ namespace Forms_TakiLetra.Controls
                     return;
                 }
 
-                // Adiciona o novo usuário ao arquivo
-                File.AppendAllText(path, $"{user}:{pass}\n");
+                // Adiciona o novo usuário ao arquivo com role "User"
+                File.AppendAllText(path, $"{user}:{pass}:User\n");
 
                 MessageBox.Show("Conta criada com sucesso!", "Cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SignUpSucceeded?.Invoke(this, EventArgs.Empty);

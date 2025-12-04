@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using Forms_TakiLetra.Models;
 
 namespace Forms_TakiLetra
 {
@@ -16,7 +18,11 @@ namespace Forms_TakiLetra
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+<<<<<<< Updated upstream
         private enum ScreenId { Main, Login, SignUp, Shop, Books }
+=======
+        private enum ScreenId { Main, Login, SignUp, Shop, AdminPanel }
+>>>>>>> Stashed changes
 
         private readonly Dictionary<ScreenId, UserControl> _screens = new Dictionary<ScreenId, UserControl>();
         private ScreenId? _current;
@@ -27,6 +33,7 @@ namespace Forms_TakiLetra
         public Form1()
         {
             InitializeComponent();
+            EnsureAdminUserExists(); // Garante que o usuário admin exista
 
             // Remova a borda padrão (pode também ser definido no Designer)
             this.FormBorderStyle = FormBorderStyle.None;
@@ -48,6 +55,21 @@ namespace Forms_TakiLetra
 
             // Garantir que a aplicação comece na MainPage
             Navigate(ScreenId.Main);
+        }
+
+        private void EnsureAdminUserExists()
+        {
+            var users = UserData.LoadUsers();
+            if (!users.Any(u => u.Username.Equals("admin", StringComparison.OrdinalIgnoreCase)))
+            {
+                users.Add(new UserData
+                {
+                    Username = "admin",
+                    Password = "1234", // Considere usar hashing para senhas em um aplicativo real
+                    Role = "admin" // Defina o papel como "admin"
+                });
+                UserData.SaveUsers(users);
+            }
         }
 
         private void TitleBar_MouseDown(object sender, MouseEventArgs e)
@@ -99,6 +121,7 @@ namespace Forms_TakiLetra
                 {
                     var login = new Controls.LoginPageControl();
                     login.LoginSucceeded += (s, e) => Navigate(ScreenId.Shop);
+                    login.AdminLoginSucceeded += (s, e) => Navigate(ScreenId.AdminPanel);
                     login.CancelRequested += (s, e) => Navigate(ScreenId.Main);
                     login.MainPageRequested += (s, e) => Navigate(ScreenId.Main);
                     login.SignUpRequested += (s, e) => Navigate(ScreenId.SignUp);
@@ -121,6 +144,19 @@ namespace Forms_TakiLetra
                     break;
                 }
                 case ScreenId.Shop:
+                {
+                    var shop = new Controls.ShopPageControl();
+                    shop.LogoutRequested += (s, e) => Navigate(ScreenId.Main);
+                    created = shop;
+                    break;
+                }
+                case ScreenId.AdminPanel:
+                {
+                    var admin = new Controls.AdminUserManagementControl();
+                    admin.LogoutRequested += (s, e) => Navigate(ScreenId.Main);
+                    created = admin;
+                    break;
+                }
                 default:
                 {
                     var shop = new Controls.ShopPageControl();
